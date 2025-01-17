@@ -1,3 +1,5 @@
+import { UserRole } from '$types/enum';
+
 export const loginSchema: AjvSchema = {
   type: 'object',
   required: ['email', 'password'],
@@ -28,6 +30,13 @@ export const registerSchema: AjvSchema = {
       type: 'string',
       minLength: 6,
       maxLength: 32,
+    },
+    name: {
+      type: 'string',
+    },
+    role: {
+      type: 'number',
+      enum: Object.values(UserRole),
     },
   },
 };

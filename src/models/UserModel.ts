@@ -1,4 +1,4 @@
-import { UserStatus } from '$types/enum';
+import { UserRole, UserStatus } from '$types/enum';
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IUser extends Document {
@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   status: UserStatus;
+  role: UserRole;
   refreshToken: string;
   updateAt: number;
   createdAt: number;
@@ -19,6 +20,7 @@ export const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   status: { type: Number, default: UserStatus.ACTIVE, required: true },
+  role: { type: Number, default: UserRole.USER, required: true },
   refreshToken: { type: String },
   updateAt: { type: Number, default: Date.now },
   createdAt: { type: Number, default: Date.now },

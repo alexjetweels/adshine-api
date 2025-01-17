@@ -29,6 +29,11 @@ export enum ContactState {
   REJECT = 3,
 }
 
+export enum UserRole {
+  ADMIN = 1,
+  USER = 2,
+}
+
 export enum UserStatus {
   ACTIVE = 1,
   INACTIVE = 0,
