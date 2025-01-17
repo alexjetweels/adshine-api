@@ -56,7 +56,7 @@ export async function register(params: IRegister) {
   /* -------------------------------------------------------------------------- */
   /*                               Create new user                              */
   /* -------------------------------------------------------------------------- */
-  const User = new UserModel({ email, password: passwordHash });
+  const User = new UserModel({ ...params, email, password: passwordHash });
   const result = (await User.save()).toObject();
   const token = generateToken({ _id: String(result._id), refreshToken: '' });
 
